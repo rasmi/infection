@@ -1,5 +1,8 @@
 .node {
-    stroke: white;
+    stroke: black;
+}
+.node.infected {
+    fill: red;
 }
 
 .link {
