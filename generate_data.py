@@ -39,5 +39,5 @@ def write_links(filename):
         json.dump({'links': links, 'nodes': nodes}, outfile)
 
 if __name__ == '__main__':
-    generate_graph(200, 50)
+    generate_graph(200, 800)
     write_links('graph.json')
