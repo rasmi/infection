@@ -29,10 +29,14 @@ def get_links():
     # This wouldn't work if you're also deleting nodes, but it works fine as a controlled data-generating hack.
     return [{'source': c.coach_id-1, 'target': c.student_id-1} for c in db.query(Coachingconnection).all()]
 
+def get_nodes():
+    return [{'id': user.id-1} for user in db.query(User).all()]
+
 def write_links(filename):  
     with open(filename, 'w') as outfile:
-        data = get_links()
-        json.dump(data, outfile)
+        links = get_links()
+        nodes = get_nodes()
+        json.dump({'links': links, 'nodes': nodes}, outfile)
 
 if __name__ == '__main__':
     generate_graph(1000, 10000)
